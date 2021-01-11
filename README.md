@@ -20,9 +20,11 @@ backup_zhihu("splitter")
 静等一段时间。运行结束后，可以看到产生了名为`splitter`的文件夹：
 ```
 - splitter
-|- answer   (840 files) 
+|- answer   (842 files)
 |- article  (101 files)
+|- pin      (3214 files)
 |- question (57 files)
+
 ```
 备份已经成功，现在可以删光回答和文章了。
 

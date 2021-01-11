@@ -7,7 +7,10 @@ def act_api(username):
     return "https://www.zhihu.com/api/v4/members/%s/activities" % username
 
 def get_json(url):
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75"}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75",
+        "x-api-version": "3.0.91",
+    }
     r = requests.get(url, headers=headers)
     return json.loads(r.text)
 
@@ -38,7 +41,13 @@ def loop(username):
                 saved.append(target['question']['title'])
             for saved_type in ('title', 'content', 'updated_time'):
                 if saved_type in target:
-                    saved.append(str(target[saved_type]))
+                    if type(target[saved_type]) is not list:
+                        saved.append(str(target[saved_type]))
+                    else:
+                        for tt in target[saved_type]:
+                            for saved_type2 in ('content', 'url'):
+                                if saved_type2 in tt:
+                                    saved.append(tt[saved_type2])
             with open(os.path.join(username, target_type, "%s.txt" % target['id']), 'w', encoding='utf-8') as f:
                 f.write('\n'.join(saved))
             t.update(1)
