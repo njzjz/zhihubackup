@@ -39,7 +39,7 @@ def loop(username):
             for saved_type in ('title', 'content', 'updated_time'):
                 if saved_type in target:
                     saved.append(str(target[saved_type]))
-            with open(os.path.join(username, target_type, "%s.txt" % target['id']), 'w') as f:
+            with open(os.path.join(username, target_type, "%s.txt" % target['id']), 'w', encoding='utf-8') as f:
                 f.write('\n'.join(saved))
             t.update(1)
         # paging: is_end next previous
