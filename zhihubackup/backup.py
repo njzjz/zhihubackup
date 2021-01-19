@@ -4,7 +4,7 @@ import os
 from tqdm import tqdm
 
 def act_api(username):
-    return "https://www.zhihu.com/api/v4/members/%s/activities" % username
+    return "https://www.zhihu.com/api/v3/moments/%s/activities" % username
 
 def get_json(url):
     headers = {
