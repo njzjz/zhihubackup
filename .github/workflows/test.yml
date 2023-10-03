@@ -1,0 +1,19 @@
+name: Test Python package
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+    - run: pip install .[node]
+    - name: Test
+      run: pytest tests/
+    # - uses: codecov/codecov-action@v3
