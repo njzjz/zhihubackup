@@ -1,15 +1,34 @@
 import requests
 import json
 import os
+import subprocess
+
 from tqdm import tqdm
+
+def xzse96(path: str, d_c0: str):
+    return subprocess.check_output(["node", os.path.join(__file__, "..", "xzse96.js"), path, d_c0])
+
 
 def act_api(username):
     return "https://www.zhihu.com/api/v3/moments/%s/activities?desktop=true" % username
 
-def get_json(url):
+
+def get_cookie(username):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75",
+    }
+    r = requests.get(f"https://www.zhihu.com/people/{username}", headers=headers)
+    return r.headers['Set-Cookie']
+
+
+def get_json(url, cookie):
+    d_c0 = cookie.split('d_c0=')[1].split(';')[0]
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Edg/87.0.664.75",
         "x-api-version": "3.0.91",
+        "x-zse-93": "101_3_3.0",
+        "x-zse-96": xzse96(url[len("https://www.zhihu.com"):], d_c0=d_c0),
+        "cookie": cookie,
     }
     r = requests.get(url, headers=headers)
     return json.loads(r.text)
@@ -21,13 +40,14 @@ def makedirs(username, target_type):
         pass
 
 def loop(username):
+    cookie = get_cookie(username)
     api = read_record()
     if api is None:
         api = act_api(username)
     t = tqdm()
     while True:
         save_record(api)
-        jdata = get_json(api)
+        jdata = get_json(api, cookie)
         # data: ['target', 'action_text', 'is_sticky', 'actor', 'verb', 'created_time', 'type', 'id']
         for dd in jdata['data']:
             target = dd['target']
