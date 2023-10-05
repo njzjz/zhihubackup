@@ -16,6 +16,7 @@ pip install 'zhihubackup[node] @ git+https://github.com/njzjz/zhihubackup'
 
 ```python
 from zhihubackup import backup_zhihu
+
 backup_zhihu("splitter")
 ```
 
@@ -29,4 +30,3 @@ backup_zhihu("splitter")
 
 ```
 备份已经成功，现在可以删光回答和文章了。
-
