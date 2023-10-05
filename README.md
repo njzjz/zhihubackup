@@ -12,12 +12,10 @@ pip install zhihubackup[node]
 
 ## 使用
 
-假如你是@贱贱，你的id是`splitter`，那么可以编写Python脚本：
+假如你是@贱贱，你的id是`splitter`，那么可以执行命令：
 
-```python
-from zhihubackup import backup_zhihu
-
-backup_zhihu("splitter")
+```sh
+zhihubackup splitter
 ```
 
 静等一段时间。运行结束后，可以看到产生了名为`splitter`的文件夹：

@@ -32,6 +32,9 @@ keywords = ["zhihu"]
 [project.urls]
 repository = "https://github.com/njzjz/zhihubackup"
 
+[project.scripts]
+zhihubackup = "zhihubackup.cli:main"
+
 [project.optional-dependencies]
 node = [
     "nodejs-wheel",
