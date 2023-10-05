@@ -7,5 +7,6 @@ setup(
   install_requires = ['requests', 'tqdm'],
   extras_require = {
       "node": ["nodejs-wheel"],
+      "test": ["pytest", "pytest-cov"],
   },
 )
