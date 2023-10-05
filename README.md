@@ -5,7 +5,7 @@
 ## 安装
 
 ```sh
-pip install 'zhihubackup[node] @ git+https://github.com/njzjz/zhihubackup'
+pip install zhihubackup[node]
 ```
 
 如果已安装[Node.js](https://github.com/nodejs/node)，则可以去掉`[node]`。
