@@ -46,12 +46,13 @@ def makedirs(username, target_type):
 
 def loop(username):
     cookie = get_cookie(username)
-    api = read_record()
+    record_file = "record." + username
+    api = read_record(record_file=record_file)
     if api is None:
         api = act_api(username)
     t = tqdm()
     while True:
-        save_record(api)
+        save_record(api, record_file=record_file)
         jdata = get_json(api, cookie)
         # data: ['target', 'action_text', 'is_sticky', 'actor', 'verb', 'created_time', 'type', 'id']
         for dd in jdata["data"]:
