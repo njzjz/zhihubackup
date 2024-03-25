@@ -16,4 +16,6 @@ jobs:
     - run: pip install -e .[node,test]
     - name: Test
       run: pytest --cov tests/
-    - uses: codecov/codecov-action@v3
+    - uses: codecov/codecov-action@v4
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
