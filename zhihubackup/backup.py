@@ -13,7 +13,7 @@ def xzse96(path: str, d_c0: str):
 
 
 def act_api(username):
-    return "https://www.zhihu.com/api/v3/moments/%s/activities?desktop=true" % username
+    return f"https://www.zhihu.com/api/v3/moments/{username}/activities?desktop=true"
 
 
 def get_cookie(username):
@@ -75,7 +75,7 @@ def loop(username):
                                 if saved_type2 in tt:
                                     saved.append(tt[saved_type2])
             with open(
-                os.path.join(username, target_type, "%s.txt" % target["id"]),
+                os.path.join(username, target_type, f"{target['id']}.txt"),
                 "w",
                 encoding="utf-8",
             ) as f:
