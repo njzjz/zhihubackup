@@ -5,10 +5,8 @@
 ## 安装
 
 ```sh
-pip install zhihubackup[node]
+pip install zhihubackup
 ```
-
-如果已安装[Node.js](https://github.com/nodejs/node)，则可以去掉`[node]`。
 
 ## 使用
 

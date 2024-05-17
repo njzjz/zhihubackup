@@ -24,6 +24,7 @@ classifiers = [
 dependencies = [
     "requests",
     "tqdm",
+    "nodejs-wheel-binaries>=20.13.1",
 ]
 requires-python = ">=3.7"
 readme = "README.md"
@@ -36,9 +37,6 @@ repository = "https://github.com/njzjz/zhihubackup"
 zhihubackup = "zhihubackup.cli:main"
 
 [project.optional-dependencies]
-node = [
-    "nodejs-wheel",
-]
 test = [
     "pytest",
     "pytest-cov",

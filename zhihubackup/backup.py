@@ -4,12 +4,14 @@ import subprocess
 
 import requests
 from tqdm import tqdm
+from nodejs_wheel import (
+    node,
+)
 
 
 def xzse96(path: str, d_c0: str):
-    return subprocess.check_output(
-        ["node", os.path.join(__file__, "..", "xzse96.js"), path, d_c0]
-    )
+    completed_process = node([os.path.join(__file__, "..", "xzse96.js"), path, d_c0], return_completed_process=True, check=True, stdout=subprocess.PIPE, text=True)
+    return completed_process.stdout
 
 
 def act_api(username):
