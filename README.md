@@ -4,8 +4,11 @@
 
 ## 安装
 
+用[pipx](https://github.com/pypa/pipx)安装zhihubackup到独立环境中：
+
 ```sh
-pip install zhihubackup
+pip install pipx
+pipx install zhihubackup
 ```
 
 ## 使用
