@@ -16,7 +16,7 @@ pipx install zhihubackup
 2024年7月起，知乎添加了如下所示的验证操作：
 
 ```json
-{'error': {'need_login': True, 'redirect': 'https://www.zhihu.com/account/unhuman?type=S6E3V1&need_login=true', 'code': 40352, 'message': '系统监测到您的网络环境存在异常，为保证您的正常访问，请点击下方验证按钮进行验证。在您验证完成前，该提示将多次出现。'}}
+{"error": {"need_login": true, "redirect": "https://www.zhihu.com/account/unhuman?type=S6E3V1&need_login=true", "code": 40352, "message": "系统监测到您的网络环境存在异常，为保证您的正常访问，请点击下方验证按钮进行验证。在您验证完成前，该提示将多次出现。"}}
 ```
 
 因此需要从浏览器中手动获取zhihu.com的cookie：
