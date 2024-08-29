@@ -39,7 +39,7 @@ def get_json(url, cookie):
         "x-api-version": "3.0.91",
         "x-zse-93": "101_3_3.0",
         "x-zse-96": xzse96(url[len("https://www.zhihu.com") :], d_c0=d_c0),
-        "cookie": cookie,
+        "cookie": cookie.encode("utf-8"),
     }
     r = requests.get(url, headers=headers)
     return json.loads(r.text)
@@ -53,7 +53,7 @@ def makedirs(username, target_type):
 
 
 def loop(username):
-    cookie = get_cookie(username)
+    cookie = os.environ.get("ZHIHU_COOKIE", get_cookie(username))
     record_file = "record." + username
     api = read_record(record_file=record_file)
     if api is None:
