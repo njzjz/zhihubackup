@@ -16,6 +16,8 @@ jobs:
     - run: pip install -e .[test]
     - name: Test
       run: pytest --cov tests/
+      env:
+        ZHIHU_COOKIE: ${{ secrets.ZHIHU_COOKIE }}
     - uses: codecov/codecov-action@v4
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
