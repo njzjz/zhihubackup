@@ -13,6 +13,22 @@ pipx install zhihubackup
 
 ## 使用
 
+2024年7月起，知乎添加了如下所示的验证操作：
+
+```json
+{"error": {"need_login": true, "redirect": "https://www.zhihu.com/account/unhuman?type=S6E3V1&need_login=true", "code": 40352, "message": "系统监测到您的网络环境存在异常，为保证您的正常访问，请点击下方验证按钮进行验证。在您验证完成前，该提示将多次出现。"}}
+```
+
+因此需要从浏览器中手动获取zhihu.com的cookie：
+[Chrome获取Cookie](https://developer.chrome.com/docs/devtools/application/cookies?hl=zh-cn)
+[Edge获取Cookie](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/storage/cookies)
+
+将获取的cookie设置为环境变量：
+
+```sh
+export ZHUHU_COOKIE="q_c1=...; ...; osd=..."
+```
+
 假如你是@贱贱，你的id是`splitter`，那么可以执行命令：
 
 ```sh
