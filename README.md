@@ -26,7 +26,7 @@ pipx install zhihubackup
 将获取的cookie设置为环境变量：
 
 ```sh
-export ZHUHU_COOKIE="q_c1=...; ...; osd=..."
+export ZHIHU_COOKIE="q_c1=...; ...; osd=..."
 ```
 
 假如你是@贱贱，你的id是`splitter`，那么可以执行命令：
