@@ -7,7 +7,7 @@ name = "zhihubackup"
 dynamic = ["version"]
 description = "Backup your Zhihu contents before quitting Zhihu."
 authors = [
-    { name = "Jinzhe Zeng", email = "jinzhe.zeng@rutgers.edu" },
+    { name = "Jinzhe Zeng", email = "jinzhe.zeng@ustc.edu.cn" },
 ]
 license = { file = "LICENSE" }
 classifiers = [
